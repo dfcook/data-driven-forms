@@ -1,12 +1,14 @@
 import Vue from 'vue';
 import App from './App.vue';
-import router from './router';
 import store from './store';
+
+import './assets/css/app.styl';
 
 Vue.config.productionTip = false;
 
+/* tslint:disable-next-line no-unused-expression */
 new Vue({
-  router,
+  el: '#app',
   store,
   render: (h) => h(App),
-}).$mount('#app');
+});
