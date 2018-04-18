@@ -1,7 +1,10 @@
 <template>
   <div class="container center-content">
-    <div class="full-width center-content">      
-      <Hello name="Everybody" />
+    <div class="full-width center-content">
+      <select-question
+        v-for="question in questions"
+        :key="question.key"
+        :question="question" />
     </div>
   </div>
 </template>
@@ -9,14 +12,18 @@
 <script lang="ts">
 import Vue from 'vue';
 import Component from 'vue-class-component';
-import Hello from './components/Hello.vue';
+import { State } from 'vuex-class';
+
+import { Question } from '@/types';
+import SelectQuestionComponent from '@/components/questions/SelectQuestionComponent.vue';
 
 @Component({
   components: {
-    Hello,
+    'select-question': SelectQuestionComponent,
   },
 })
 export default class App extends Vue {
+  @State('questions') private questions!: Question[];
 }
 </script>
 

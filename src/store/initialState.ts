@@ -1,4 +1,16 @@
+import { AnswerType } from '../types/AnswerType';
+
 export default {
-  questions: [],
+  questions: [{
+    key: 'age',
+    text: 'What is your age band?',
+    answerType: AnswerType.Select,
+    options: [
+      {
+        text: '18 to 34',
+        key: '18To34',
+      },
+    ],
+  }],
   answers: [],
 };
