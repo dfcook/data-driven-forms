@@ -1,11 +1,9 @@
 <template>
-  <div class="container center-content">
-    <div class="full-width center-content">
-      <select-question
-        v-for="question in questions"
-        :key="question.key"
-        :question="question" />
-    </div>
+  <div class="container">
+    <select-question
+      v-for="question in questions"
+      :key="question.key"
+      :question="question" />
   </div>
 </template>
 
@@ -29,6 +27,14 @@ export default class App extends Vue {
 
 <style lang="stylus" scoped>
 .container
-  font-family 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
   max-width 1200px
+  margin 0 auto
+  padding 3rem
+  display flex
+  flex-direction row
+  justify-content space-around
+  border 1px solid #aaa
+  border-radius 1.1rem
+  background-color white
+  box-shadow 3px 3px #aaa
 </style>

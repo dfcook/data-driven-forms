@@ -1,3 +1,16 @@
+*
+  padding 0
+  margin 0
+
+html
+  font-family 'Roboto'
+  font-size 0.9em
+
+body
+  padding 1.5rem
+  margin 1.5rem
+  background-color #eee
+
 .full-width
   width 100%
 
@@ -5,3 +18,29 @@
   display flex
   justify-content center
   align-items center
+
+.question-container
+  @extend .center-content
+  @extend .full-width
+  flex-direction row
+
+.question-label
+  flex 30%
+
+.question-input
+  flex 40%
+
+.question-help-text
+  flex 30%
+
+select
+  min-height 1.9rem
+  width 100%
+  max-width 25rem
+  text-align right
+  border 1px solid #cccccc
+  border-radius 0.3rem
+  font-family 'Roboto'
+  font-size 0.9em
+  &:focus
+    outline 0

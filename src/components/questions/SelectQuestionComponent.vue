@@ -1,6 +1,5 @@
 <template>
-  <div>
-    <label>{{ question.text }}</label>
+  <question :question="question">
     <select
       :name="question.key"
       v-model="value">
@@ -11,7 +10,7 @@
         {{ option.text }}
       </option>
     </select>
-  </div>
+  </question>
 </template>
 
 <script lang="ts">
@@ -22,8 +21,13 @@ import { Action } from 'vuex-class';
 
 import { SelectQuestion } from '@/types';
 import { ActionMethod } from 'vuex';
+import QuestionComponent from './QuestionComponent.vue';
 
-@Component
+@Component({
+  components: {
+    question: QuestionComponent,
+  },
+})
 export default class SelectQuestionComponent extends Vue {
   @Prop({ required: true })
   public question!: SelectQuestion;
@@ -39,4 +43,3 @@ export default class SelectQuestionComponent extends Vue {
   }
 }
 </script>
-

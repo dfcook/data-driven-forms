@@ -11,6 +11,7 @@ export default {
         key: '18To34',
       },
     ],
+    helpText: 'How old are you?',
   }],
   answers: [],
 };
