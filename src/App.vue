@@ -1,9 +1,13 @@
 <template>
-  <div class="container">
-    <select-question
-      v-for="question in questions"
-      :key="question.key"
-      :question="question" />
+  <div class="main-container">
+    <div class="title">Customer Satisfaction Survey</div>
+    <div class="questions-container">
+      <select-question
+        :question="currentQuestion" />
+    </div>
+    <div class="footer">
+      {{ currentIndex }} of {{ questions.length }} questions
+    </div>
   </div>
 </template>
 
@@ -22,19 +26,40 @@ import SelectQuestionComponent from '@/components/questions/SelectQuestionCompon
 })
 export default class App extends Vue {
   @State('questions') private questions!: Question[];
+
+  private currentIndex: number = 0;
+
+  get currentQuestion() {
+    return this.questions[this.currentIndex];
+  }
 }
 </script>
 
 <style lang="stylus" scoped>
-.container
-  max-width 1200px
+.main-container
+  max-width 1000px
   margin 0 auto
-  padding 3rem
-  display flex
-  flex-direction row
-  justify-content space-around
+  margin-top 11rem
   border 1px solid #aaa
-  border-radius 1.1rem
+  border-radius 0.7rem
   background-color white
-  box-shadow 3px 3px #aaa
+  .title
+    padding 1rem
+    background-color #2ecc71
+    border-top-left-radius 0.7rem
+    border-top-right-radius 0.7rem
+    color white
+    font-size 1.7em
+  .questions-container
+    display flex
+    flex-direction column
+    padding 5rem
+    justify-content space-around
+  .footer
+    padding 1rem
+    background-color black
+    color white
+    text-align center
+    border-bottom-left-radius 0.7rem
+    border-bottom-right-radius 0.7rem
 </style>

@@ -5,6 +5,7 @@ export default {
     key: 'age',
     text: 'What is your age band?',
     answerType: AnswerType.Select,
+    index: 0,
     options: [
       {
         text: '18 to 34',

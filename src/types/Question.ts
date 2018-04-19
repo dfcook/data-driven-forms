@@ -3,6 +3,7 @@ import Option from './Option';
 
 interface BaseQuestion {
   key: string;
+  index: number;
   text: string;
   answerType: AnswerType;
   helpText?: string;

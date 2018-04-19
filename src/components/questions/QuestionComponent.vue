@@ -9,9 +9,9 @@
       <slot />
     </div>
 
-    <div class="question-help-text">
-      <p v-show="helpTextVisible">{{ question.helpText }}</p>
-    </div>
+    <help-text
+      :text="question.helpText"
+      :visible="helpTextVisible" />
 
   </div>
 </template>
@@ -19,13 +19,16 @@
 <script lang="ts">
 import Vue from 'vue';
 import Component from 'vue-class-component';
-import { Prop, Watch } from 'vue-property-decorator';
-import { Action } from 'vuex-class';
+import { Prop } from 'vue-property-decorator';
 
 import { Question } from '@/types';
-import { ActionMethod } from 'vuex';
+import QuestionHelpTextComponent from './QuestionHelpTextComponent.vue';
 
-@Component
+@Component({
+  components: {
+    'help-text': QuestionHelpTextComponent,
+  },
+})
 export default class QuestionComponent extends Vue {
   @Prop({ required: true })
   public question!: Question;
